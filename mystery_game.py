@@ -134,7 +134,12 @@ def evaluate_guess(guess_idx, solution_idx):
     """
     # We always compare 3 categories in this order:
     # 0 = suspect, 1 = location, 2 = item
-    pass
+    result_list = [
+        guess_idx[0] == solution_idx[0],
+        guess_idx[1] == solution_idx[1],
+        guess_idx[2] == solution_idx[2]
+    ]
+    return result_list
 
 
 def is_win(result_list):
