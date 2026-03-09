@@ -179,13 +179,16 @@ def update_all_notebooks(pos_suspect, pos_location, pos_item, guess_idx, result_
     """
     # If the suspect part was incorrect, that specific suspect cannot be in the envelope,
     # so cross it off in the suspect notebook.
-
+    if not result_list[0]:
+        pos_suspect[guess_idx[0]] = False
     # If the location part was incorrect, that specific location cannot be in the envelope,
     # so cross it off in the location notebook.
-
+    if not result_list[1]:
+        pos_location[guess_idx[1]] = False
     # If the item part was incorrect, that specific item cannot be in the envelope,
     # so cross it off in the item notebook.
-    pass
+    if not result_list[2]:
+        pos_item[guess_idx[2]] = False
 
 
 def check_and_record_guess(guess_history, guess_idx):
