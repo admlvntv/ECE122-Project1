@@ -213,12 +213,16 @@ def check_and_record_guess(guess_history, guess_idx):
     """
     # Search through history to see if the exact same triple was guessed before.
     # A "duplicate" means same suspect index AND same location index AND same item index.
-
+    penalty = 1
+    for old_guess in guess_history:
+        if old_guess[0] == guess_idx[0] and old_guess[1] == guess_idx[1] and old_guess[2] == guess_idx[2]:
+            penalty = 2
+            break
     # Record the guess so future turns can detect duplicates.
     # Important: store the three index values, not a reference that might change later.
-
+    guess_history.append(guess_idx[:])
     # Return the attempt penalty amount so main.py can subtract it from attempts.
-    pass
+    return penalty
 
 
 def use_clue_token(possible_list, solution_index):
