@@ -26,8 +26,8 @@ Important design notes:
 Student 1:
 Spire Id:
 
-Student 2: 
-Spire Id:
+Student 2: Adam Nativ
+Spire Id: 35141601
 """
 import random
 
