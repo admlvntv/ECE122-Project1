@@ -23,8 +23,8 @@ Important design notes:
 - This version has NO witness reveal and NO separate cases.
 """
 """
-Student 1:
-Spire Id:
+Student 1: Agilan Kumar
+Spire Id: 35073172
 
 Student 2: Adam Nativ
 Spire Id: 35141601
