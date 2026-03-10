@@ -51,8 +51,9 @@ def build_game():
     # --- Core game data ---
     # suspects/locations/items should be filled with the full set of names.
     # main.py will later choose the secret envelope by picking an INDEX into each set.
-    pass
-
+    suspects = ["Colonel Mustard", "Miss Scarlet", "Professor Plum", "Mrs. Peacock", "Mr. Green", "Dr. Orchid", "Sergeant Gray"]
+    locations = ["Library", "Kitchen", "Ballroom", "Study", "Conservatory"]
+    items = ["Candlestick", "Rope", "Wrench", "Knife", "Revolver"]
     # Randomize displayed order each run.
     # This makes the menu look different each time the program is run.
     # main.py chooses the envelope AFTER calling build_game(), so shuffling here is safe:
@@ -63,14 +64,14 @@ def build_game():
 
     # Per spec: player gets 4 attempts total.
     # main.py copies this into its variable "attempts".
-    # max_attempts = 4
-    pass
+    max_attempts = 4
     
     # Randomize starting clue tokens (resource system).
     # main.py copies this into its variable "tokens".
     # Adjust this range if you want tokens to be more/less common.
     clue_tokens = random.randint(1, 2)
-    pass
+    return suspects, locations, items, max_attempts, clue_tokens
+
 
 
 def display_game_state(suspects, locations, items, pos_suspect, pos_location, pos_item, attempts, tokens):
