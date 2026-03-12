@@ -112,17 +112,17 @@ def display_game_state(suspects, locations, items, pos_suspect, pos_location, po
 
     print("SUSPECTS:")
     for i in range(len(suspects)):
-        if pos_suspect[i]:
+        if i < len(pos_location) and pos_suspect[i]:
             print(i+1,suspects[i])
     print()
     print("LOCATIONS:")
     for i in range(len(locations)):
-        if pos_location[i]:
+        if i < len(pos_location) and pos_location[i]:
             print(i+1,locations[i])
     print()
     print("ITEMS:")
     for i in range(len(items)):
-        if pos_item[i]:
+        if i < len(pos_item) and pos_item[i]:
             print(i + 1, items[i])
     print()
 
@@ -282,7 +282,15 @@ def use_clue_token(possible_list, solution_index):
 
     # If we reach the end without eliminating anything, we couldn't use the token
     # to remove an incorrect option (often because only the correct one remains).
-    pass
+    if len(possible_list) == 1:
+        return False
+    else:
+        rem = random.choice(possible_list)
+        while rem == solution_index:
+            rem = random.choice(possible_list)
+        possible_list.remove(rem)
+        return True
+
 
 
 def best_clue_category(pos_suspect, pos_location, pos_item):
