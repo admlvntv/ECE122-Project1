@@ -326,4 +326,12 @@ def best_clue_category(pos_suspect, pos_location, pos_item):
     # Count how many items are still possible.
 
     # Return the category number with the most remaining possibilities.
-    pass
+    count_suspect = len(pos_suspect)
+    count_location = len(pos_location)
+    count_item = len(pos_item)
+    if count_suspect >= count_location and count_suspect >= count_item:
+        return 0
+    if count_location > count_suspect and count_location >= count_item:
+        return 1
+    else:
+        return 2
