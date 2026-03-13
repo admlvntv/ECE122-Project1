@@ -102,7 +102,7 @@ def display_game_state(suspects, locations, items, pos_suspect, pos_location, po
         None (prints to the console)
     """
     # Only print options that are still marked as possible in the notebook.
-    # NOTE: We display with numbering starting at 1 for user friendliness,
+    # NOTE: We display with numbering starting at 1 for user-friendliness,
     # even though the internal indexes start at 0.
 
     print("DEDUCTION NOTEBOOK")
@@ -279,13 +279,12 @@ def use_clue_token(possible_list, solution_index):
     """
     # Only eliminate an option if it is still possible
     # and it is not the solution_index (never eliminate the correct answer).
-
-    # If we reach the end without eliminating anything, we couldn't use the token
-    # to remove an incorrect option (often because only the correct one remains).
     for i in range(len(possible_list)):
         if possible_list[i] and i!=solution_index:
             possible_list[i] = False
             return True
+    # If we reach the end without eliminating anything, we couldn't use the token
+    # to remove an incorrect option (often because only the correct one remains).
     return False
 
 
